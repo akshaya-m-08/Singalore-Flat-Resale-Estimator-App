@@ -163,7 +163,10 @@ if selected == "Home":
     logo_path = "asset/home_tab1.png"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
-    st.title("Welcome to Singapore Resale Flat Price Estimator")
+    st.title("Singapore Resale Flat Price Estimator")
+    st.write("")
+    st.write("")
+    st.write("")
     st.header("Singapore - A Vibrant City-State")
     st.write("""
         Singapore, an island city-state in Southeast Asia, is renowned for its rapid development, excellent infrastructure, and vibrant economy.
