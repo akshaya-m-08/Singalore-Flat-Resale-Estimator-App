@@ -165,38 +165,42 @@ elif selected == "Application":
     logo_path = "asset\logo.gif"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
-    st.title('Singapore Resale Flat Price Estimator')
+    col1, col2, col3 = st.columns((2.7,5,2.7),gap="large")
+    with col2:
+        st.title('SG Resale Flat Price Estimator')
 
     # Load data for dropdown options
     towns, flat_types, flat_models, storey_ranges = load_static_data()
+    col1, col2, col3 = st.columns((2.5,5,2.5),gap="large")
+    with col2:
+        # User input
+        year = st.selectbox('Year of Sale', options=list(range(1990, 2025)), index=34)
+        town = st.selectbox('Town', towns)
+        flat_type = st.selectbox('Flat Type', flat_types)
+        flat_model = st.selectbox('Flat Model', flat_models)
+        storey_range = st.selectbox('Storey Range', storey_ranges)
+        floor_area_sqm = st.text_input('Floor Area (sqm)', '90.0', help="Enter a value between 10 and 1000")
+        lease_commence_date = st.selectbox('Lease Commence Date', options=list(range(1960, 2025)), index=40)
 
-    # User input
-    year = st.selectbox('Year of Sale', options=list(range(1990, 2025)), index=34)
-    town = st.selectbox('Town', towns)
-    flat_type = st.selectbox('Flat Type', flat_types)
-    flat_model = st.selectbox('Flat Model', flat_models)
-    storey_range = st.selectbox('Storey Range', storey_ranges)
-    floor_area_sqm = st.text_input('Floor Area (sqm)', '90.0', help="Enter a value between 10 and 1000")
-    lease_commence_date = st.selectbox('Lease Commence Date', options=list(range(1960, 2025)), index=40)
-
-    # Validate floor_area_sqm input
-    try:
-        floor_area_sqm = float(floor_area_sqm)
-        if not 10.0 <= floor_area_sqm <= 1000.0:
+        # Validate floor_area_sqm input
+        try:
+            floor_area_sqm = float(floor_area_sqm)
+            if not 10.0 <= floor_area_sqm <= 1000.0:
+                floor_area_sqm = None
+        except ValueError:
             floor_area_sqm = None
-    except ValueError:
-        floor_area_sqm = None
 
-    predicted_price = ""
-    if st.button('Estimate Resale Price'):
-        if floor_area_sqm is not None:
-            predicted_price = predict_resale_price(year, town, flat_type, flat_model, storey_range, floor_area_sqm, lease_commence_date)
-            col1,col2,col3 = st.columns((2,5,2),gap="large")
-            with col2:
-                st.markdown('<style>div[data-testid="stMetric"] > div {text-align: center;}</style>', unsafe_allow_html=True)
-                st.metric(label="Estimated Resale Price", value=f"${predicted_price:,.2f}")
-        else:
-            st.warning("Please enter a valid floor area between 10 and 200 sqm.")
+        predicted_price = ""
+        st.write("")
+        st.write("")
+        col1, col2, col3 = st.columns((2,2,2),gap="large")
+        with col2:
+            if st.button('Estimate Resale Price'):
+                if floor_area_sqm is not None:
+                    predicted_price = predict_resale_price(year, town, flat_type, flat_model, storey_range, floor_area_sqm, lease_commence_date)
+                    st.metric(label="", value=f"${predicted_price:,.2f}")
+                else:
+                    st.warning("Please enter a valid floor area between 10 and 200 sqm.")
     st.write("")
     st.write("")
     st.write("")
