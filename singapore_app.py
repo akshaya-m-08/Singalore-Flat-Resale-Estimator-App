@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import base64
 from streamlit_option_menu import option_menu
+import os
 
 # Set page configuration as the first Streamlit command
 st.set_page_config(
@@ -74,7 +75,16 @@ def get_image_base64(image_path):
 # Load the saved model
 @st.cache_resource
 def load_model():
-    return joblib.load('best_model.pkl')
+    model_path = os.path.join(os.getcwd(), 'best_model.pkl')  # Adjust path as necessary
+    st.write(f"Attempting to load model from: {model_path}")
+    try:
+        model = joblib.load(model_path)
+        st.write("Model loaded successfully.")
+        return model
+    except Exception as e:
+        st.error(f"Error loading model: {str(e)}")
+        return None
+
 
 model = load_model()
 
