@@ -80,11 +80,9 @@ def get_image_base64(image_path):
 # Load the saved model
 @st.cache_resource
 def load_model():
-    model_path = os.path.join(os.getcwd(), 'best_model.pkl')  # Adjust path as necessary
-    st.write(f"Attempting to load model from: {model_path}")
+    model_path = os.path.join(os.getcwd(), 'best_model.pkl') 
     try:
         model = joblib.load(model_path)
-        st.write("Model loaded successfully.")
         return model
     except Exception as e:
         st.error(f"Error loading model: {str(e)}")
