@@ -8,7 +8,7 @@ from streamlit_option_menu import option_menu
 # Set page configuration as the first Streamlit command
 st.set_page_config(
     page_title="Singapore Resale Flat Price Estimator",
-    page_icon="asset\home_tab2.png",
+    page_icon="asset\home_tab2.svg",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -121,7 +121,7 @@ def load_static_data():
 
 # Sidebar content
 with st.sidebar:
-    logo_path = "asset\home_tab2.png"
+    logo_path = "asset\home_tab2.svg"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="side-image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
 
@@ -145,7 +145,7 @@ with st.sidebar:
     )
 
 if selected == "Home":
-    logo_path = "asset\home_tab1.png"
+    logo_path = "asset\home_tab1.svg"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="side-image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
     st.title("Welcome to Singapore Resale Flat Price Estimator")
