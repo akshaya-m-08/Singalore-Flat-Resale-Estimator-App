@@ -5,7 +5,7 @@ import numpy as np
 import base64
 from streamlit_option_menu import option_menu
 import os
-
+import sklearn
 
 # Set page configuration as the first Streamlit command
 st.set_page_config(
