@@ -69,8 +69,12 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Function to get the base64 encoded string of the image
 def get_image_base64(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except Exception as e:
+        st.error(f"Error reading image '{image_path}': {str(e)}")
+        return None
 
 # Load the saved model
 @st.cache_resource
