@@ -5,11 +5,12 @@ import numpy as np
 import base64
 from streamlit_option_menu import option_menu
 import os
+import sklearn
 
 # Set page configuration as the first Streamlit command
 st.set_page_config(
     page_title="Singapore Resale Flat Price Estimator",
-    page_icon="asset\home_tab2.png",
+    page_icon="asset/home_tab2.png",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -137,7 +138,7 @@ def load_static_data():
 
 # Sidebar content
 with st.sidebar:
-    logo_path = "asset\home_tab2.png"
+    logo_path = "asset/home_tab2.png"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="side-image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
 
@@ -161,7 +162,7 @@ with st.sidebar:
     )
 
 if selected == "Home":
-    logo_path = "asset\home_tab1.png"
+    logo_path = "asset/home_tab1.png"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
     st.title("Welcome to Singapore Resale Flat Price Estimator")
@@ -176,7 +177,7 @@ if selected == "Home":
         VIDEO_URL = "https://www.youtube.com/watch?v=R2Yk6UmXxMM"
         st.video(VIDEO_URL)
 elif selected == "Application":
-    logo_path = "asset\logo.gif"
+    logo_path = "asset/logo.gif"
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
     col1, col2, col3 = st.columns((2.7,5,2.7),gap="large")
