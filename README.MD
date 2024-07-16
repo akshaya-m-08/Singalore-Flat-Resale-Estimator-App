@@ -1,4 +1,5 @@
-# Singapore Resale Flat Price Estimator
+# Singapore Resale Flat Price Estimator - 
+[AppLink] (https://singalore-flat-resale-estimator-app.streamlit.app/)
 
 ## Introduction
 This application predicts the resale price of HDB flats in Singapore based on various input parameters such as year of sale, town, flat type, flat model, storey range, floor area, and lease commencement date.
