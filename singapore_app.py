@@ -17,6 +17,8 @@ st.set_page_config(
 custom_css = """
 <style>
 .image-container img {
+    height: 200px;
+    width: 200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -147,7 +149,7 @@ with st.sidebar:
 if selected == "Home":
     logo_path = "asset\home_tab1.png"
     logo_base64 = get_image_base64(logo_path)
-    st.markdown(f'<div class="side-image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
+    st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
     st.title("Welcome to Singapore Resale Flat Price Estimator")
     st.header("Singapore - A Vibrant City-State")
     st.write("""
@@ -162,7 +164,7 @@ if selected == "Home":
 elif selected == "Application":
     logo_path = "asset\logo.gif"
     logo_base64 = get_image_base64(logo_path)
-    st.markdown(f'<div class="side-image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
+    st.markdown(f'<div class="image-container"><img src="data:image/png;base64,{logo_base64}" alt="Company Logo" /></div>', unsafe_allow_html=True)   
     st.title('Singapore Resale Flat Price Estimator')
 
     # Load data for dropdown options
