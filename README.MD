@@ -37,8 +37,8 @@ The application can be deployed on the Render platform or any other cloud platfo
 
 ## Application Overview
 - **Home Tab:** Provides general information about Singapore and HDB flats.
-- **Application Tab:** Allows users to input data and get resale price predictions.
-- **Summary Tab:** Summarizes the project, including data analysis, model development, and developer information.
+- **Application Tab:** Allows users to input data and get resale price predictions with summary and developer information
 
 ## Developer Information
-This application was developed by Akshaya Muralidharan. Connect with Akshaya on [LinkedIn](https://www.linkedin.com/in/akshayam08/).
+This application was developed by Akshaya Muralidharan. Connect with Akshaya on 
+[LinkedIn](https://www.linkedin.com/in/akshayam08/).
